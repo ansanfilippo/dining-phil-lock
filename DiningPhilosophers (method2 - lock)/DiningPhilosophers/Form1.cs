@@ -147,8 +147,8 @@ namespace WindowsFormsApplication1
                 LV.Items[Row].SubItems[SubItem].Text = s;
             }
         }
-
         //
+
         public Thread pThread;
         public int philID;
         private Fork leftFork;
@@ -209,14 +209,13 @@ namespace WindowsFormsApplication1
                     lock (first)
                     {
                         ForkStatus = "H: " + first.forkID + " R: " + second.forkID;
-
                         Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
 
                         lock (second)
                         {
 
-                            Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                             ForkStatus = "H: " + first.forkID + ", " + second.forkID;
+                            Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
 
                             Status = "Eating...";
                             Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
@@ -226,6 +225,7 @@ namespace WindowsFormsApplication1
                             Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                             ForkStatus = "H: " + first.forkID;
                         }
+
                         Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                         ForkStatus = "";
                     }
